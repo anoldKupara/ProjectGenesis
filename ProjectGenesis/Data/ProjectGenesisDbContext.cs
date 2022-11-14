@@ -8,7 +8,6 @@ namespace ProjectGenesis.Data
             : base(options)
         {
         }
-
-        public DbSet<ProjectGenesis.Models.Project> Project { get; set; }
+        
     }
 }
