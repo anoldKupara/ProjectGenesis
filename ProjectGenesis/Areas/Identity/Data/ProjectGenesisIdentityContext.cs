@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ProjectGenesis.Areas.Identity.Data;
 
 namespace ProjectGenesis.Areas.Identity.Data;
@@ -18,5 +19,16 @@ public class ProjectGenesisIdentityContext : IdentityDbContext<ProjectGenesisUse
         // Customize the ASP.NET Identity model and override the defaults if needed.
         // For example, you can rename the ASP.NET Identity table names and more.
         // Add your customizations after calling base.OnModelCreating(builder);
+
+        builder.ApplyConfiguration(new ProjectGenesisUserConfiguration());
+    }
+}
+
+public class ProjectGenesisUserConfiguration : IEntityTypeConfiguration<ProjectGenesisUser>
+{
+    public void Configure(EntityTypeBuilder<ProjectGenesisUser> builder)
+    {
+        builder.Property(u => u.FirstName).HasMaxLength(250);
+        builder.Property(u => u.LastName).HasMaxLength(250);
     }
 }

@@ -10,6 +10,11 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ProjectGenesisDbContext>(options =>
  options.UseSqlServer(builder.Configuration.GetConnectionString("ProjectGenesisDb")));
 
+builder.Services.AddDbContext<ProjectGenesisIdentityContext>();
+//builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+//                .AddEntityFrameworkStores<ProjectGenesisIdentityContext>()
+//                .AddDefaultTokenProviders();
+
 builder.Services.AddDefaultIdentity<ProjectGenesisUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ProjectGenesisIdentityContext>();
 
@@ -31,6 +36,8 @@ app.UseRouting();
 app.UseAuthentication();;
 
 app.UseAuthorization();
+
+app.MapRazorPages();
 
 app.MapControllerRoute(
     name: "default",
