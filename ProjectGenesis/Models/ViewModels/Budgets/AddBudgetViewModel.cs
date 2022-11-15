@@ -1,8 +1,7 @@
-﻿namespace ProjectGenesis.Models.Entities
+﻿namespace ProjectGenesis.Models.ViewModels.Budgets
 {
-    public class Budget
+    public class AddBudgetViewModel
     {
-        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Purpose { get; set; }
         public string SourceOfFund { get; set; }

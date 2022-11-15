@@ -1,6 +1,6 @@
-﻿namespace ProjectGenesis.Models.Entities
+﻿namespace ProjectGenesis.Models.ViewModels.Sales
 {
-    public class Sale
+    public class UpdateSaleViewModel
     {
         public Guid Id { get; set; }
         public string ItemPurchased { get; set; }
@@ -8,6 +8,5 @@
         public float Price { get; set; }
         public string PaymentMethod { get; set; }
         public DateTime DateOfPurchase { get; set; }
-
     }
 }

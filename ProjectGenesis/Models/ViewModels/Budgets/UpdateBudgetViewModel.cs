@@ -1,6 +1,6 @@
-﻿namespace ProjectGenesis.Models.Entities
+﻿namespace ProjectGenesis.Models.ViewModels.Budgets
 {
-    public class Budget
+    public class UpdateBudgetViewModel
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

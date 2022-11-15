@@ -1,8 +1,7 @@
-﻿namespace ProjectGenesis.Models.Entities
+﻿namespace ProjectGenesis.Models.ViewModels.Feeds
 {
-    public class Feed
+    public class AddFeedViewModel
     {
-        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Purpose { get; set; }
         public DateTime DateOfPurchase { get; set; }

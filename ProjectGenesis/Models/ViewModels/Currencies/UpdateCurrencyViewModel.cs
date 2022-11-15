@@ -1,6 +1,6 @@
-﻿namespace ProjectGenesis.Models.Entities
+﻿namespace ProjectGenesis.Models.ViewModels.Currencies
 {
-    public class Currency
+    public class UpdateCurrencyViewModel
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

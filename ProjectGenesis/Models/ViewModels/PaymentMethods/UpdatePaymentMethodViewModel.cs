@@ -1,6 +1,6 @@
-﻿namespace ProjectGenesis.Models.Entities
+﻿namespace ProjectGenesis.Models.ViewModels.PaymentMethods
 {
-    public class PaymentMethod
+    public class UpdatePaymentMethodViewModel
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

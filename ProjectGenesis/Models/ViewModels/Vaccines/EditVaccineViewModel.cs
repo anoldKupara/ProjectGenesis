@@ -1,6 +1,6 @@
-﻿namespace ProjectGenesis.Models.Entities
+﻿namespace ProjectGenesis.Models.ViewModels.Vaccines
 {
-    public class Vaccine
+    public class EditVaccineViewModel
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
@@ -11,6 +11,5 @@
         public int Quantity { get; set; }
         public float Amount { get; set; }
         public string Currency { get; set; }
-
     }
 }

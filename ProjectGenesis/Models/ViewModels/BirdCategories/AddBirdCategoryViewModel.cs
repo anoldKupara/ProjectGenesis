@@ -1,8 +1,7 @@
-﻿namespace ProjectGenesis.Models.Entities
+﻿namespace ProjectGenesis.Models.ViewModels.BirdCategories
 {
-    public class BirdCategory
+    public class AddBirdCategoryViewModel
     {
-        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Purpose { get; set; }
         public string Breed { get; set; }

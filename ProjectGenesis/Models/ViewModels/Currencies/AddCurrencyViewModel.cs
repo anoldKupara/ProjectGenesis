@@ -1,8 +1,7 @@
-﻿namespace ProjectGenesis.Models.Entities
+﻿namespace ProjectGenesis.Models.ViewModels.Currencies
 {
-    public class Currency
+    public class AddCurrencyViewModel
     {
-        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Symbol { get; set; }
         public int Rate { get; set; }
