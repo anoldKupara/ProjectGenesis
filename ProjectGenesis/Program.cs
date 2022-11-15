@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ProjectGenesis.Data;
+using Microsoft.AspNetCore.Identity;
+using ProjectGenesis.Areas.Identity.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ProjectGenesisDbContext>(options =>
  options.UseSqlServer(builder.Configuration.GetConnectionString("ProjectGenesisDb")));
+
+builder.Services.AddDefaultIdentity<ProjectGenesisUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<ProjectGenesisIdentityContext>();
 
 
 var app = builder.Build();
@@ -23,6 +28,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseAuthentication();;
 
 app.UseAuthorization();
 
