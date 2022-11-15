@@ -1,0 +1,33 @@
+﻿@model ProjectGenesis.Models.ViewModels.Users.AddUserViewModel
+
+@{
+}
+
+<h1>Add User</h1>
+<form method="post" action="CreateUser">
+    <div class="mb-3">
+        <label for="" class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name" >
+    </div>
+    
+    <div class="mb-3">
+        <label for="" class="form-label">Surname</label>
+        <input type="text" class="form-control" asp-for="Surname">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Email</label>
+        <input type="text" class="form-control" asp-for="Email" >
+    </div>
+    
+    <div class="mb-3">
+        <label for="" class="form-label">Password</label>
+        <input type="text" class="form-control" asp-for="Password" >
+    </div>
+    
+    <div class="mb-3">
+        <label for="" class="form-label">Date of Birth</label>
+        <input type="date" class="form-control" asp-for="DateOfBirth">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
