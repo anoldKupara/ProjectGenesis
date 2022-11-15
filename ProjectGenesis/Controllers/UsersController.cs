@@ -23,8 +23,5 @@ namespace ProjectGenesis.Controllers
         {            
             return View();
         }
-
-        [HttpPost]
-        public async
     }
 }
