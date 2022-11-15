@@ -10,7 +10,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ProjectGenesisDbContext>(options =>
  options.UseSqlServer(builder.Configuration.GetConnectionString("ProjectGenesisDb")));
 
-builder.Services.AddDbContext<ProjectGenesisIdentityContext>();
+//builder.Services.AddDbContext<ProjectGenesisIdentityContext>();
+builder.Services.AddDbContext<ProjectGenesisIdentityContext>(options =>
+ options.UseSqlServer(builder.Configuration.GetConnectionString("ProjectGenesisIdentityContextConnection")));
 //builder.Services.AddIdentity<IdentityUser, IdentityRole>()
 //                .AddEntityFrameworkStores<ProjectGenesisIdentityContext>()
 //                .AddDefaultTokenProviders();
