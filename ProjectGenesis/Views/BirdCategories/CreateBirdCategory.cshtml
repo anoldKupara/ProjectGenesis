@@ -1,0 +1,22 @@
+﻿@model ProjectGenesis.Models.ViewModels.BirdCategories.AddBirdCategoryViewModel
+
+@{
+}
+
+<h1>Add Bird Category</h1>
+<form method="post" action="CreateBirdCategory">
+    <div class="mb-3">
+        <label for="" class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Purpose</label>
+        <input type="text" class="form-control" asp-for="Purpose">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Breed</label>
+        <input type="text" class="form-control" asp-for="Breed">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -85,7 +85,16 @@ namespace ProjectGenesis.Controllers
             }
             return View();
         }
-
+        [HttpGet]
+        public async Task<IActionResult> DeleteUser(Guid? id)
+        {
+            var user = await _genesisDbContext.Users.FindAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return View(user);
+        }
         [HttpPost]
         public async Task<IActionResult> DeleteUser(Guid id)
         {

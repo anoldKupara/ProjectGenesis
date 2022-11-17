@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ProjectGenesis.Data;
 using ProjectGenesis.Models.Entities;
 using ProjectGenesis.Models.ViewModels.BirdCategories;
@@ -13,9 +14,10 @@ namespace ProjectGenesis.Controllers
         {
             _projectGenesisDb = projectGenesisDb;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var birdCategories = await _projectGenesisDb.BirdCategories.ToListAsync();
+            return View(birdCategories);
         }
 
         [HttpGet]
