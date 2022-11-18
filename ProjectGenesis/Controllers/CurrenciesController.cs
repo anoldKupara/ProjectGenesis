@@ -35,7 +35,8 @@ namespace ProjectGenesis.Controllers
                 var currency = new Currency
                 {
                     Name = addCurrencyViewModel.Name,
-                    Symbol = addCurrencyViewModel.Symbol
+                    Symbol = addCurrencyViewModel.Symbol,
+                    Rate = addCurrencyViewModel.Rate
                 };
 
                 _projectGenesisDbContext.Currencies.Add(currency);
