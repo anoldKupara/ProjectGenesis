@@ -1,0 +1,46 @@
+﻿@model ProjectGenesis.Models.ViewModels.Budgets.EditBudgetViewModel
+
+@{
+}
+
+<h1>Edit Budget</h1>
+<form method="post" action="EditBudget">
+    <div class="mb-3">
+        <label for="" class="form-label">Id</label>
+        <input type="text" class="form-control" asp-for="Id" readonly>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Purpose</label>
+        <input type="text" class="form-control" asp-for="Purpose">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Source Of Fund</label>
+        <input type="text" class="form-control" asp-for="SourceOfFund">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Project Start Date</label>
+        <input type="date" class="form-control" asp-for="ProjectStartDate">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Project End Date</label>
+        <input type="date" class="form-control" asp-for="ProjectEndDate">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Amount</label>
+        <input type="text" class="form-control" asp-for="Amount">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Currency</label>
+        <input type="text" class="form-control" asp-for="Currency">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-danger"
+            asp-action="DeleteBudget" asp-controller="Budgets">
+        Delete
+    </button>
+</form>
