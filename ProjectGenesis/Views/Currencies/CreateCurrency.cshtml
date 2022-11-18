@@ -1,0 +1,20 @@
+﻿@model ProjectGenesis.Models.ViewModels.Currencies.AddCurrencyViewModel
+
+@{
+}
+
+<h1>Create Currency</h1>
+<form method="post" action="CreateCurrency">
+        <div class="mb-3">
+        <label for="" class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name">
+    </div>
+        <div class="mb-3">
+        <label for="" class="form-label">Symbol</label>
+        <input type="text" class="form-control" asp-for="Symbol">
+    </div>
+        <div class="mb-3">
+        <label for="" class="form-label">Rate</label>
+        <input type="text" class="form-control" asp-for="Rate">
+    </div>
+</form>
