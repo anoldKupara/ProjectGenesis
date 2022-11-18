@@ -46,5 +46,46 @@ namespace ProjectGenesis.Controllers
 
             return View(addCurrencyViewModel);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> EditCurrency(Guid id)
+        {
+            var currency = await _projectGenesisDbContext.Currencies.FindAsync(id);
+            if (currency == null)
+            {
+                return NotFound();
+            }
+
+            var editCurrencyViewModel = new EditCurrencyViewModel
+            {
+                Id = currency.Id,
+                Name = currency.Name,
+                Symbol = currency.Symbol
+            };
+
+            return View(editCurrencyViewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditCurrency(EditCurrencyViewModel editCurrencyViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var currency = await _projectGenesisDbContext.Currencies.FindAsync(editCurrencyViewModel.Id);
+                if (currency == null)
+                {
+                    return NotFound();
+                }
+
+                currency.Name = editCurrencyViewModel.Name;
+                currency.Symbol = editCurrencyViewModel.Symbol;
+
+                await _projectGenesisDbContext.SaveChangesAsync();
+
+                return RedirectToAction("Index");
+            }
+
+            return View(editCurrencyViewModel);
+        }
     }
 }
