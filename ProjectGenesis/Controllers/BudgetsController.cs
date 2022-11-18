@@ -103,5 +103,31 @@ namespace ProjectGenesis.Controllers
             return View(editBudgetViewModel);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> DeleteBudget(Guid? id)
+        {
+            var budget = await _projectGenesisDbContext.Budgets.FindAsync(id);
+            if (budget == null)
+            {
+                return NotFound();
+            }
+
+            return View(budget);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteBudget(Guid id)
+        {
+            var budget = await _projectGenesisDbContext.Budgets.FindAsync(id);
+            if (budget == null)
+            {
+                return NotFound();
+            }
+
+            _projectGenesisDbContext.Budgets.Remove(budget);
+            await _projectGenesisDbContext.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+        }
     }
 }
