@@ -6,11 +6,11 @@ using ProjectGenesis.Models.ViewModels.Budgets;
 
 namespace ProjectGenesis.Controllers
 {
-    public class BudgetController : Controller
+    public class BudgetsController : Controller
     {
         private readonly ProjectGenesisDbContext _projectGenesisDbContext;
 
-        public BudgetController(ProjectGenesisDbContext projectGenesisDbContext)
+        public BudgetsController(ProjectGenesisDbContext projectGenesisDbContext)
         {
            _projectGenesisDbContext = projectGenesisDbContext;
         }
