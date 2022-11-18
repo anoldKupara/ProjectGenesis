@@ -1,31 +1,30 @@
-﻿@model ProjectGenesis.Models.ViewModels.Currencies.EditCurrencyViewModel
+﻿@model ProjectGenesis.Models.Entities.Currency
 
 
 @{
 }
 
-<h1>Edit Currency</h1>
-<form method="post" action="EditCurrency">
+<h1>Delete Currency</h1>
+<form method="post" action="DeleteCurrency">
     <div class="mb-3">
         <label for="" class="form-label">Id</label>
         <input type="text" class="form-control" asp-for="Id" readonly>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Name</label>
-        <input type="text" class="form-control" asp-for="Name">
+        <input type="text" class="form-control" asp-for="Name" readonly>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Symbol</label>
-        <input type="text" class="form-control" asp-for="Symbol">
+        <input type="text" class="form-control" asp-for="Symbol" readonly>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Rate</label>
-        <input type="text" class="form-control" asp-for="Rate">
+        <input type="text" class="form-control" asp-for="Rate" readonly>
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
     <button type="submit" class="btn btn-danger"
-            asp-action="DeleteBudget" asp-controller="Budgets">
-        Delete
+            asp-action="DeleteCurrency" asp-controller="Currencies">
+        Delete Currency
     </button>
 </form>

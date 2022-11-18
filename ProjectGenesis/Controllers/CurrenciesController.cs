@@ -87,5 +87,32 @@ namespace ProjectGenesis.Controllers
 
             return View(editCurrencyViewModel);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> DeleteCurrency(Guid? id)
+        {
+            var currency = await _projectGenesisDbContext.Currencies.FindAsync(id);
+            if (currency == null)
+            {
+                return NotFound();
+            }
+
+            return View(currency);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteCurrency(Guid id)
+        {
+            var currency = await _projectGenesisDbContext.Currencies.FindAsync(id);
+            if (currency == null)
+            {
+                return NotFound();
+            }
+
+            _projectGenesisDbContext.Currencies.Remove(currency);
+            await _projectGenesisDbContext.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+        }
     }
 }
