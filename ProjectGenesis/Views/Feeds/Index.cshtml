@@ -1,0 +1,85 @@
+﻿@model List<ProjectGenesis.Models.Entities.Feed>
+
+@{
+}
+
+<form>
+    <div class="row gutters">
+        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-12">
+            <h1>Feeds</h1>
+        </div>
+        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+            <li class="btn btn-link">
+                <a class="btn btn-secondary" asp-area="" asp-controller="Feeds" asp-action="CreateFeed">Add Feed</a>
+            </li>
+        </div>
+    </div>
+    <table id="example" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Amount
+                </th>
+                <th>
+                    Purpose
+                </th>
+                <th>
+                    DateOfPurchase
+                </th>
+                <th>
+                    DateOfExpiry
+                </th>
+                <th>
+                    Amount
+                </th>
+                <th>
+                    Currency
+                </th>
+                <th>
+                    Supplier
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var feed in Model)
+            {
+                <tr>
+                    <td>
+                        @feed.Name
+                    </td>
+                    <td>
+                        @feed.Amount
+                    </td>
+                    <td>
+                        @feed.Purpose
+                    </td>
+                    <td>
+                        @feed.DateOfPurchase
+                    </td>
+                    <td>
+                        @feed.DateOfExpiry
+                    </td>
+                    <td>
+                        @feed.Amount
+                    </td>
+                    <td>
+                        @feed.Currency
+                    </td>
+                    <td>
+                        @feed.Supplier
+                    </td>
+                    <td>
+                        <a asp-area="" asp-controller="Feeds" asp-action="EditFeed" asp-route-id="@feed.Id">Edit</a> |
+                        <a asp-area="" asp-controller="Feeds" asp-action="DeleteFeed" asp-route-id="@feed.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>
