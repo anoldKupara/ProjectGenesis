@@ -15,7 +15,7 @@
             </li>
         </div>
     </div>
-    <table class="table table-striped table-dark">
+    <table id="example" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
                 <th>
@@ -55,3 +55,15 @@
     </table>
 
 </form>
+
+<script>
+    $(document).ready(function () {
+        var table = $('#example').DataTable({
+            lengthChange: false,
+            buttons: ['copy', 'excel', 'pdf', 'colvis']
+        });
+
+        table.buttons().container()
+            .appendTo('#example_wrapper .col-md-6:eq(0)');
+    });
+</script>

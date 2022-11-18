@@ -46,5 +46,48 @@ namespace ProjectGenesis.Controllers
 
             return View(addBirdCategoryViewModel);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> EditBirdCategory(Guid id)
+        {
+            var birdCategory = await _projectGenesisDb.BirdCategories.FindAsync(id);
+            if (birdCategory == null)
+            {
+                return NotFound();
+            }
+
+            var editBirdCategoryViewModel = new EditBirdCategoryViewModel
+            {
+                Id = birdCategory.Id,
+                Name = birdCategory.Name,
+                Purpose = birdCategory.Purpose,
+                Breed = birdCategory.Breed
+            };
+
+            return View(editBirdCategoryViewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditBirdCategory(EditBirdCategoryViewModel editBirdCategoryViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var birdCategory = await _projectGenesisDb.BirdCategories.FindAsync(editBirdCategoryViewModel.Id);
+                if (birdCategory == null)
+                {
+                    return NotFound();
+                }
+
+                birdCategory.Name = editBirdCategoryViewModel.Name;
+                birdCategory.Purpose = editBirdCategoryViewModel.Purpose;
+                birdCategory.Breed = editBirdCategoryViewModel.Breed;
+
+                await _projectGenesisDb.SaveChangesAsync();
+
+                return RedirectToAction("Index");
+            }
+
+            return View(editBirdCategoryViewModel);
+        }
     }
 }
