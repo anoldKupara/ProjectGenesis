@@ -89,5 +89,32 @@ namespace ProjectGenesis.Controllers
 
             return View(editBirdCategoryViewModel);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> DeleteBirdCategory(Guid? id)
+        {
+            var birdCategory = await _projectGenesisDb.BirdCategories.FindAsync(id);
+            if (birdCategory == null)
+            {
+                return NotFound();
+            }
+
+            return View(birdCategory);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteBirdCategory(Guid id)
+        {
+            var birdCategory = await _projectGenesisDb.BirdCategories.FindAsync(id);
+            if (birdCategory == null)
+            {
+                return NotFound();
+            }
+
+            _projectGenesisDb.BirdCategories.Remove(birdCategory);
+            await _projectGenesisDb.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+        }
     }
 }

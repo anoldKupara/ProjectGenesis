@@ -1,0 +1,29 @@
+﻿@model ProjectGenesis.Models.Entities.BirdCategory
+
+@{
+}
+
+<h1>Delete Bird Category</h1>
+<form method="post" action="DeleteBirdCategory">
+    <div class="mb-3">
+        <label for="" class="form-label">Id</label>
+        <input type="text" class="form-control" asp-for="Id" readonly>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name" >
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Purpose</label>
+        <input type="text" class="form-control" asp-for="Purpose" >
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Breed</label>
+        <input type="text" class="form-control" asp-for="Breed" >
+    </div>
+    
+    <button type="submit" class="btn btn-danger"
+            asp-action="DeleteBirdCategory" asp-controller="BirdCategories">
+        Delete Bird Category
+    </button>
+</form>
