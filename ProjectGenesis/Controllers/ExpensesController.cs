@@ -99,5 +99,33 @@ namespace ProjectGenesis.Controllers
 
             return View(editExpenseViewModel);
         }
+
+        
+        [HttpGet]
+        public async Task<IActionResult> DeleteExpense(Guid? id)
+        {
+            var expense = await _projectGenesisDbContext.Expenses.FindAsync(id);
+            if (expense == null)
+            {
+                return NotFound();
+            }
+
+            return View(expense);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteExpense(Guid id)
+        {
+            var expense = await _projectGenesisDbContext.Expenses.FindAsync(id);
+            if (expense == null)
+            {
+                return NotFound();
+            }
+
+            _projectGenesisDbContext.Expenses.Remove(expense);
+            await _projectGenesisDbContext.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -1,0 +1,42 @@
+﻿@model ProjectGenesis.Models.Entities.Expense
+
+@{
+}
+
+<h1>Delete Expense</h1>
+<form method="post" action="EditExpense">
+    <div class="mb-3">
+        <label for="" class="form-label">Id</label>
+        <input type="text" class="form-control" asp-for="Id" readonly>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name" readonly>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Purpose</label>
+        <input type="text" class="form-control" asp-for="Purpose" readonly>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Source Of Fund</label>
+        <input type="text" class="form-control" asp-for="SourceOfFund" readonly>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Expense Date</label>
+        <input type="date" class="form-control" asp-for="ExpenseDate" readonly>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Amount</label>
+        <input type="number" class="form-control" asp-for="Amount" readonly>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Currency</label>
+        <input type="text" class="form-control" asp-for="Currency" readonly>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-danger"
+            asp-action="DeleteExpense" asp-controller="Expenses" >
+        Delete
+    </button>
+</form>
