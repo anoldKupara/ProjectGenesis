@@ -52,5 +52,55 @@ namespace ProjectGenesis.Controllers
 
             return View(addInventoryViewModel);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> EditInventory(Guid id)
+        {
+            var inventory = await _projectGenesisDbContext.Inventories.FindAsync(id);
+
+            if (inventory == null)
+            {
+                return NotFound();
+            }
+
+            var editInventoryViewModel = new EditInventoryViewModel
+            {
+                ItemName = inventory.ItemName,
+                Purpose = inventory.Purpose,
+                Quantity = inventory.Quantity,
+                Amount = inventory.Amount,
+                Currency = inventory.Currency,
+                ExpiryDate = inventory.ExpiryDate
+            };
+
+            return View(editInventoryViewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditInventory(Guid id, EditInventoryViewModel editInventoryViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var inventory = await _projectGenesisDbContext.Inventories.FindAsync(id);
+
+                if (inventory == null)
+                {
+                    return NotFound();
+                }
+
+                inventory.ItemName = editInventoryViewModel.ItemName;
+                inventory.Purpose = editInventoryViewModel.Purpose;
+                inventory.Quantity = editInventoryViewModel.Quantity;
+                inventory.Amount = editInventoryViewModel.Amount;
+                inventory.Currency = editInventoryViewModel.Currency;
+                inventory.ExpiryDate = editInventoryViewModel.ExpiryDate;
+
+                await _projectGenesisDbContext.SaveChangesAsync();
+
+                return RedirectToAction("Index");
+            }
+
+            return View(editInventoryViewModel);
+        }
     }
 }
