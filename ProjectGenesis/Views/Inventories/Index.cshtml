@@ -1,0 +1,79 @@
+﻿@model List<ProjectGenesis.Models.Entities.Inventory>
+
+@{
+}
+
+<form>
+    <div class="row gutters">
+        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-12">
+            <h1>Inventory</h1>
+        </div>
+        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+            <li class="btn btn-link">
+                <a class="btn btn-secondary" asp-area="" asp-controller="Inventory" asp-action="CreateInventory">Add Inventory</a>
+            </li>
+        </div>
+    </div>
+    <table id="example" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    Item Name
+                </th>
+                <th>
+                    Purpose
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th>
+                    Amount
+                </th>
+                <th>
+                    Expiry Date
+                </th>
+                <th>
+                    Amount
+                </th>
+                <th>
+                    Currency
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var inventory in Model)
+            {
+                <tr>
+                    <td>
+                        @inventory.ItemName
+                    </td>
+                    <td>
+                        @inventory.Purpose
+                    </td>
+                    <td>
+                        @inventory.Quantity
+                    </td>
+                    <td>
+                        @inventory.Amount
+                    </td>
+                    <td>
+                        @inventory.ExpiryDate
+                    </td>
+                    <td>
+                        @inventory.Amount
+                    </td>
+                    <td>
+                        @inventory.Currency
+                    </td>
+                    <td>
+                        <a asp-area="" asp-controller="Inventory" asp-action="EditInventory" asp-route-id="@inventory.Id">Edit</a> |
+                        <a asp-area="" asp-controller="Inventory" asp-action="DeleteInventory" asp-route-id="@inventory.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>
