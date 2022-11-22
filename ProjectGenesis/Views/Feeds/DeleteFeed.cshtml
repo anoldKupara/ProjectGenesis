@@ -1,0 +1,50 @@
+﻿@model ProjectGenesis.Models.Entities.Feed
+
+@{
+}
+
+<h1>Delete Feed</h1>
+<form method="post" action="DeleteFeed">
+    <div class="mb-3">
+        <label for="" class="form-label">Id</label>
+        <input type="text" class="form-control" asp-for="Id" readonly>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Purpose</label>
+        <input type="text" class="form-control" asp-for="Purpose">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Date Of Purchase</label>
+        <input type="date" class="form-control" asp-for="DateOfPurchase">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Date Of Expiry</label>
+        <input type="date" class="form-control" asp-for="DateOfExpiry">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Amount</label>
+        <input type="number" class="form-control" asp-for="Amount">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Currency</label>
+        <input type="text" class="form-control" asp-for="Currency">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Supplier</label>
+        <input type="text" class="form-control" asp-for="Supplier">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Quantity</label>
+        <input type="number" class="form-control" asp-for="Quantity">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-danger"
+            asp-action="DeleteFeed" asp-controller="Feeds">
+        Delete
+    </button>
+</form>

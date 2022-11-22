@@ -107,6 +107,32 @@ namespace ProjectGenesis.Controllers
             return View(editFeedViewModel);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> DeleteFeed(Guid? id)
+        {
+            var feed = await _projectGenesisDbContext.Feeds.FindAsync(id);
+            if (feed == null)
+            {
+                return NotFound();
+            }
+
+            return View(feed);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteFeed(Guid id)
+        {
+            var feed = await _projectGenesisDbContext.Feeds.FindAsync(id);
+            if (feed == null)
+            {
+                return NotFound();
+            }
+
+            _projectGenesisDbContext.Feeds.Remove(feed);
+            await _projectGenesisDbContext.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+        }
 
     }
 }
