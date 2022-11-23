@@ -97,7 +97,33 @@ namespace ProjectGenesis.Controllers
 
             return View(editSaleViewModel);
         }
-        
-        
+
+
+        [HttpGet]
+        public async Task<IActionResult> DeleteSale(Guid? id)
+        {
+            var sale = await _projectGenesisDbContext.Sales.FindAsync(id);
+            if (sale == null)
+            {
+                return NotFound();
+            }
+
+            return View(sale);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteSale(Guid id)
+        {
+            var sale = await _projectGenesisDbContext.Sales.FindAsync(id);
+            if (sale == null)
+            {
+                return NotFound();
+            }
+
+            _projectGenesisDbContext.Sales.Remove(sale);
+            await _projectGenesisDbContext.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+        }
     }
 }
