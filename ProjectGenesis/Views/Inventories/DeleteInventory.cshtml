@@ -1,35 +1,42 @@
-﻿@model ProjectGenesis.Models.ViewModels.Inventories.AddInventoryViewModel
+﻿@model ProjectGenesis.Models.Entities.Inventory
 
 @{
 }
 
-<h1>Add Inventory</h1>
-<form method="post" action="CreateInventory">
-     <div class="mb-3">
+<h1>Delete Inventory</h1>
+<form method="post" action="DeleteInventory">
+    <div class="mb-3">
+        <label for="" class="form-label">Id</label>
+        <input type="text" class="form-control" asp-for="Id" readonly>
+    </div>
+    <div class="mb-3">
         <label for="" class="form-label">Item Name</label>
         <input type="text" class="form-control" asp-for="ItemName">
     </div>
-        <div class="mb-3">
+    <div class="mb-3">
         <label for="" class="form-label">Purpose</label>
         <input type="text" class="form-control" asp-for="Purpose">
     </div>
-     <div class="mb-3">
+    <div class="mb-3">
         <label for="" class="form-label">Quantity</label>
         <input type="number" class="form-control" asp-for="Quantity">
     </div>
-        <div class="mb-3">
+    <div class="mb-3">
         <label for="" class="form-label">Amount</label>
         <input type="number" class="form-control" asp-for="Amount">
     </div>
-     <div class="mb-3">
+    <div class="mb-3">
         <label for="" class="form-label">Currency</label>
         <input type="text" class="form-control" asp-for="Currency">
     </div>
-        <div class="mb-3">
+    <div class="mb-3">
         <label for="" class="form-label">Expiry Date</label>
         <input type="date" class="form-control" asp-for="ExpiryDate">
     </div>
-    
-    <button type="submit" class="btn btn-primary">Submit</button>
+
+    <button type="submit" class="btn btn-danger"
+            asp-action="DeleteInventory" asp-controller="Inventories">
+        Delete
+    </button>
 </form>
 

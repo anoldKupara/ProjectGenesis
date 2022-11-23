@@ -102,5 +102,36 @@ namespace ProjectGenesis.Controllers
 
             return View(editInventoryViewModel);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteInventory(Guid? id)
+        {
+            var inventory = await _projectGenesisDbContext.Inventories.FindAsync(id);
+
+            if (inventory == null)
+            {
+                return NotFound();
+            }
+
+            return View(inventory);
+        }
+        
+        [HttpGet]
+        public async Task<IActionResult> DeleteInventory(Guid id)
+        {
+            var inventory = await _projectGenesisDbContext.Inventories.FindAsync(id);
+
+            if (inventory == null)
+            {
+                return NotFound();
+            }
+
+            _projectGenesisDbContext.Inventories.Remove(inventory);
+            await _projectGenesisDbContext.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+        }
+
+
     }
 }
