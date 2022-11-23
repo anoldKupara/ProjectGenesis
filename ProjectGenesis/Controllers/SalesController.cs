@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ProjectGenesis.Data;
 
 namespace ProjectGenesis.Controllers
@@ -11,9 +12,12 @@ namespace ProjectGenesis.Controllers
         {
             _projectGenesisDbContext = projectGenesisDbContext;
         }
-        public IActionResult Index()
+
+        [HttpGet]
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var sales = await _projectGenesisDbContext.Sales.ToListAsync();
+            return View(sales);
         }
     }
 }
