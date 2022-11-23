@@ -1,0 +1,28 @@
+﻿@model ProjectGenesis.Models.ViewModels.PaymentMethods.EditPaymentMethodViewModel
+
+@{
+}
+
+<h1>Add Payment Method</h1>
+<form method="post" action="EditPaymentMethod">
+        <div class="mb-3">
+        <label for="" class="form-label">Id</label>
+        <input type="text" class="form-control" asp-for="Id" readonly>
+    </div>
+    
+    <div class="mb-3">
+        <label for="" class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name">
+    </div>
+    
+    <div class="mb-3">
+        <label for="" class="form-label">Item Name</label>
+        <input type="text" class="form-control" asp-for="Currency">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-danger"
+            asp-action="DeletePaymentMethod" asp-controller="PaymentMethods">
+        Delete
+    </button>
+</form>
