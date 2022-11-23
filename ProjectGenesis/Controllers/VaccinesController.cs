@@ -53,5 +53,84 @@ namespace ProjectGenesis.Controllers
 
             return View(addVaccineViewModel);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> EditVaccine(Guid id)
+        {
+            var vaccine = await _projectGenesisDbContext.Vaccines.FindAsync(id);
+            if (vaccine == null)
+            {
+                return NotFound();
+            }
+
+            var editVaccineViewModel = new EditVaccineViewModel
+            {
+                Name = vaccine.Name,
+                Description = vaccine.Description,
+                Purpose = vaccine.Purpose,
+                Alternative = vaccine.Alternative,
+                ExpiryDate = vaccine.ExpiryDate,
+                Quantity = vaccine.Quantity,
+                Amount = vaccine.Amount,
+                Currency = vaccine.Currency
+            };
+
+            return View(editVaccineViewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditVaccine(Guid id, EditVaccineViewModel editVaccineViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var vaccine = await _projectGenesisDbContext.Vaccines.FindAsync(id);
+                if (vaccine == null)
+                {
+                    return NotFound();
+                }
+
+                vaccine.Name = editVaccineViewModel.Name;
+                vaccine.Description = editVaccineViewModel.Description;
+                vaccine.Purpose = editVaccineViewModel.Purpose;
+                vaccine.Alternative = editVaccineViewModel.Alternative;
+                vaccine.ExpiryDate = editVaccineViewModel.ExpiryDate;
+                vaccine.Quantity = editVaccineViewModel.Quantity;
+                vaccine.Amount = editVaccineViewModel.Amount;
+                vaccine.Currency = editVaccineViewModel.Currency;
+
+                await _projectGenesisDbContext.SaveChangesAsync();
+
+                return RedirectToAction("Index");
+            }
+
+            return View(editVaccineViewModel);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> DeleteVaccine(Guid? id)
+        {
+            var vaccine = await _projectGenesisDbContext.Vaccines.FindAsync(id);
+            if (vaccine == null)
+            {
+                return NotFound();
+            }
+
+            return View(vaccine);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteVaccine(Guid id)
+        {
+            var vaccine = await _projectGenesisDbContext.Vaccines.FindAsync(id);
+            if (vaccine == null)
+            {
+                return NotFound();
+            }
+
+            _projectGenesisDbContext.Vaccines.Remove(vaccine);
+            await _projectGenesisDbContext.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+        }
     }
 }

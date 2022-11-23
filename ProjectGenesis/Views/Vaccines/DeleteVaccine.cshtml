@@ -1,0 +1,49 @@
+﻿@model ProjectGenesis.Models.Entities.Vaccine
+
+@{
+}
+
+<h1>Delete Vaccine</h1>
+<form method="post" action="DeleteVaccine">
+   <div class="mb-3">
+        <label for="" class="form-label">Id</label>
+        <input type="text" class="form-control" asp-for="Id" readonly>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Description</label>
+        <input type="text" class="form-control" asp-for="Description">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Purpose</label>
+        <input type="text" class="form-control" asp-for="Purpose">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Alternative</label>
+        <input type="text" class="form-control" asp-for="Alternative">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Expiry Date</label>
+        <input type="date" class="form-control" asp-for="ExpiryDate">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Quantity</label>
+        <input type="number" class="form-control" asp-for="Quantity">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Amount</label>
+        <input type="number" class="form-control" asp-for="Amount">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Currency</label>
+        <input type="text" class="form-control" asp-for="Currency">
+    </div>
+
+    <button type="submit" class="btn btn-danger"
+            asp-action="DeleteVaccine" asp-controller="Vaccines">
+        Delete
+    </button>
+</form>
