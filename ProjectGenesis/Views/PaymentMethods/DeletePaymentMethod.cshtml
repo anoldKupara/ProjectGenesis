@@ -1,0 +1,32 @@
+﻿@model ProjectGenesis.Models.Entities.PaymentMethod
+
+@{
+}
+
+<h1>Delete Payment Method</h1>
+<h3>Are you sure you want to delete this payment method?</h3>
+
+<form method="post" action="DeletePaymentMethod">
+    <div class="mb-3">
+        <label for="" class="form-label
+[...]   ">Id</label>
+        <input type="text" class="form-control" asp-for="Id" readonly>
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name" readonly>
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">Currency</label>
+        <input type="text" class="form-control" asp-for="Currency" readonly>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-danger"
+            asp-action="DeletePaymentMethod" asp-controller="PaymentMethods">
+        Delete
+    </button>
+
+</form>

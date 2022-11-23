@@ -91,5 +91,34 @@ namespace ProjectGenesis.Controllers
 
             return View(editPaymentMethodViewModel);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> DeletePaymentMethod(Guid? id)
+        {
+            var paymentMethod = await _projectGenesisDbContext.PaymentMethods.FindAsync(id);
+
+            if (paymentMethod == null)
+            {
+                return NotFound();
+            }
+
+            return View(paymentMethod);
+        }
+        
+        [HttpPost]
+        public async Task<IActionResult> DeletePaymentMethod(Guid id)
+        {
+            var paymentMethod = await _projectGenesisDbContext.PaymentMethods.FindAsync(id);
+
+            if (paymentMethod == null)
+            {
+                return NotFound();
+            }
+
+            _projectGenesisDbContext.PaymentMethods.Remove(paymentMethod);
+            await _projectGenesisDbContext.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+        }
     }
 }
