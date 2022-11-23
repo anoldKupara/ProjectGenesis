@@ -1,0 +1,38 @@
+﻿@model ProjectGenesis.Models.ViewModels.Sales.EditSaleViewModel
+
+@{
+}
+
+<h1>Edit Sale</h1>
+<form method="post" action="EditSale">
+    <div class="mb-3">
+        <label for="" class="form-label">Id</label>
+        <input type="text" class="form-control" asp-for="Id" readonly>
+    </div>
+        <div class="mb-3">
+        <label for="" class="form-label">Item Purchased</label>
+        <input type="text" class="form-control" asp-for="ItemPurchased">
+    </div>
+        <div class="mb-3">
+        <label for="" class="form-label">Quantity</label>
+        <input type="text" class="form-control" asp-for="Quantity">
+    </div>
+        <div class="mb-3">
+        <label for="" class="form-label">Price</label>
+        <input type="text" class="form-control" asp-for="Price">
+    </div>
+        <div class="mb-3">
+        <label for="" class="form-label">PaymentMethod</label>
+        <input type="text" class="form-control" asp-for="PaymentMethod">
+    </div>
+        <div class="mb-3">
+        <label for="" class="form-label">Date Of Purchase</label>
+        <input type="text" class="form-control" asp-for="DateOfPurchase">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-danger"
+            asp-action="DeleteSale" asp-controller="Sales">
+        Delete
+    </button>
+</form>
