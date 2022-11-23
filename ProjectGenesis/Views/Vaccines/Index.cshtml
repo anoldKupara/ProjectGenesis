@@ -1,0 +1,85 @@
+﻿@model List<ProjectGenesis.Models.Entities.Vaccine>
+
+@{
+}
+
+<form>
+    <div class="row gutters">
+        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-12">
+            <h1>Vaccines</h1>
+        </div>
+        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+            <li class="btn btn-link">
+                <a class="btn btn-secondary" asp-area="" asp-controller="Vaccines" asp-action="CreateVaccine">Add Vaccine</a>
+            </li>
+        </div>
+    </div>
+    <table id="example" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Purpose
+                </th>
+                <th>
+                    Alternative
+                </th>
+                <th>
+                    ExpiryDate
+                </th>
+                <th>
+                    Amount
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th>
+                    Currency
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var vaccine in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => vaccine.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => vaccine.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => vaccine.Purpose)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => vaccine.Alternative)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => vaccine.ExpiryDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => vaccine.Amount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => vaccine.Quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => vaccine.Currency)
+                    </td>
+                    <td>
+                        <a asp-area="" asp-controller="Vaccines" asp-action="EditVaccine" asp-route-id="@vaccine.Id">Edit</a> |
+                        <a asp-area="" asp-controller="Vaccines" asp-action="DeleteVaccine" asp-route-id="@vaccine.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>
