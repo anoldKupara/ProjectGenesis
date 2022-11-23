@@ -1,1 +1,20 @@
-﻿
+﻿@model ProjectGenesis.Models.ViewModels.PaymentMethods.AddPaymentMethodViewModel
+
+@{
+}
+
+<h1>Add Inventory</h1>
+<form method="post" action="CreateInventory">
+    <div class="mb-3">
+        <label for="" class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name">
+    </div>
+    
+    <div class="mb-3">
+        <label for="" class="form-label">Item Name</label>
+        <input type="text" class="form-control" asp-for="Currency">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+    
+</form>
